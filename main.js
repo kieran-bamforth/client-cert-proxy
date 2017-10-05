@@ -1,8 +1,5 @@
-var http = require('http'),
-    httpProxy = require('http-proxy');
-//
-// Create your proxy server and set the target in the options.
-//
+const httpProxy = require('http-proxy');
+
 httpProxy.createProxyServer({
   target: process.env.TARGET,
   port: process.env.PORT
