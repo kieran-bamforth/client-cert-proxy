@@ -11,4 +11,7 @@
   "dependencies": {
     "http-proxy": "^1.16.2"
   }
+  "bin": {
+    "client-cert-proxy": "./client-cert-proxy.js"
+  }
 }
