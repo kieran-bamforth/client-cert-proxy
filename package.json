@@ -4,8 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "server": "TARGET=\"https://jira.dev.bbc.co.uk:443\" CERT=/etc/pki/tls/certs/client.crt KEY=/etc/pki/tls/private/client.key node main.js"
+    "test": "echo \"Error: no test specified\" && exit 1"
   },
   "author": "",
   "license": "ISC",
