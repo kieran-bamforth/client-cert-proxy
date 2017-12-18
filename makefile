@@ -1,3 +1,3 @@
 install:
-	$(eval NPM := $(shell which npm))
+	$(eval NPM := $(shell /bin/bash -ec 'which npm'))
 	$(NPM) install
