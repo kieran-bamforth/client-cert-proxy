@@ -9,4 +9,4 @@ const proxy = httpProxy.createProxyServer({
     key: fs.readFileSync(process.env.KEY),
   }),
   secure: false
-}).listen(8000);
+}).listen(process.env.PROXY_PATH);
