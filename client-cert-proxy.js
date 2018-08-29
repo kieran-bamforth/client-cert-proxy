@@ -2,12 +2,6 @@ const httpProxy = require('http-proxy');
 const https = require('https');
 const fs = require('fs');
 
-try {
-  fs.accessSync(process.env.PROXY_PATH, fs.constants.F_OK)
-  fs.unlink(process.env.PROXY_PATH);
-} catch (e) {
-};
-
 const proxy = httpProxy.createProxyServer({
   target: process.env.TARGET,
   agent: new https.Agent({
@@ -16,3 +10,9 @@ const proxy = httpProxy.createProxyServer({
   }),
   secure: false
 }).listen(process.env.PROXY_PATH);
+
+process.on('SIGTERM', function () {
+  proxy.close(function () {
+    process.exit(0);
+  });
+});
