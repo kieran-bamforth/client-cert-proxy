@@ -11,8 +11,12 @@ const proxy = httpProxy.createProxyServer({
   secure: false
 }).listen(process.env.PROXY_PATH);
 
-process.on('SIGTERM', function () {
+function closeProxyAndExit() {
   proxy.close(function () {
     process.exit(0);
   });
-});
+}
+
+process.on('SIGTERM', closeProxyAndExit);
+process.on('SIGINT', closeProxyAndExit);
+process.on('uncaughtException', closeProxyAndExit);
